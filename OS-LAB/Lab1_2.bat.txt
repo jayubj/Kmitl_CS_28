@@ -1,0 +1,9 @@
+REM ณัฐพงศ์ พงศ์จารุมรณี 65050295
+
+mkdir sub1
+cd sub1
+echo "" > F11.txt
+copy F11.txt F12.txt
+mkdir \q2\sub1\sub3
+copy F11.txt sub3\F13.txt
+copy F12.txt \q2

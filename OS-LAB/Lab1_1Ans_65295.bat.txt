@@ -1,0 +1,26 @@
+REM ณัฐพงศ์ พงศ์จารุมรณี 65050295
+
+
+REM 1.5
+md c:\oslab1\sub
+
+REM 1.8
+copy NUL test1.txt
+
+REM 1.11
+copy test1.txt sub\test1.txt
+
+REM 1.12
+copy c:\oslab1\sub\test1.txt test2.txt
+
+REM 1.13
+md c:\oslab1\abc
+
+REM 1.16
+del test2.txt
+
+REM 1.19
+rd /s/q sub
+
+REM 1.20
+REM c:\Windows\System32S

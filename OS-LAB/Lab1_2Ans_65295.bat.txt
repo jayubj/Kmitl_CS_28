@@ -1,0 +1,16 @@
+REM ณัฐพงศ์ พงศ์จารุมรณี 65050295
+
+
+mkdir sub2
+
+REM ralative - relative
+copy sub1\F11.txt sub2\F21.txt
+
+REM ralative - absolute
+copy sub1\F12.txt c:\q2\sub2\F22.txt
+
+REM absolute - ralative
+copy c:\q2\sub1\sub3\F13.txt sub2\F23.txt
+
+REM Change txt to doc, absolute - absolute
+move c:\q2\sub2\F22.txt c:\q2\sub2\F22.doc
