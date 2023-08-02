@@ -1,28 +1,18 @@
-RESULT=20
-CORRECT_ANSWER=10
-WRONG_ANSWER=7
-NOT_COMPILED=5
-
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-RESET=$(tput sgr0)
-
-for file in L*.c; do
-    if [ -f "$file" ]; then
-        program_name=$(echo "$file" | cut -d '.' -f 1)
-
-        if gcc "$file" -o "$program_name" > /dev/null 2>&1; then
-            answer=$(./"$program_name")
-
-            if [ "$answer" -eq "$RESULT" ]; then
-                printf "%s\t%s%d%s\n" "$program_name" "$GREEN" "$CORRECT_ANSWER" "$RESET"
-            else
-                printf "%s\t%s%d%s\n" "$program_name" "$YELLOW" "$WRONG_ANSWER" "$RESET"
-            fi
+for file in $(find . -type f -name "p*.c") 
+do 
+    fileName=`echo $file | cut -d'/' -f2 | cut -d'.' -f1`
+    gcc -o $fileName $file 2>/dev/null
+    if [ -f $fileName ] 
+    then 
+        ans=$(./$fileName)
+        if [ $ans = 20 ]
+        then
+            ans=10
         else
-            printf "%s\t%s%d%s\n" "$program_name" "$RED" "$NOT_COMPILED" "$RESET"
+            ans=7
         fi
+    else 
+        ans=5
     fi
-    rm -f "$program_name"
+    printf "%s %s\n" $fileName.c    $ans
 done
